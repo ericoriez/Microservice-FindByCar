@@ -13,8 +13,8 @@ public class UtilityVehicle extends Vehicle {
 
     private float volumeCapacity;
     public UtilityVehicle() {}
-    public UtilityVehicle(String brand, String model, String color,float base_price,float km_price, String matriculation, float volumeCapacity) {
-        super(brand, model, color, base_price, km_price, matriculation);
+    public UtilityVehicle(String brand, String model, String color,int fiscal_power,float base_price,float km_price, String matriculation, float volumeCapacity) {
+        super(brand, model, color,fiscal_power, base_price, km_price, matriculation);
         this.volumeCapacity = volumeCapacity;
     }
 }

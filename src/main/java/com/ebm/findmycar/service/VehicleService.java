@@ -40,6 +40,7 @@ public class VehicleService {
             vehicle.setBrand(vehicleDetails.getBrand());
             vehicle.setModel(vehicleDetails.getModel());
             vehicle.setColor(vehicleDetails.getColor());
+            vehicle.setFiscal_power(vehicleDetails.getFiscal_power());
             vehicle.setBase_price(vehicleDetails.getBase_price());
             vehicle.setKm_price(vehicleDetails.getKm_price());
             vehicle.setMatriculation(vehicleDetails.getMatriculation());

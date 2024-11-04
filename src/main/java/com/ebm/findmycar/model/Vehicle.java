@@ -41,16 +41,19 @@ public abstract class Vehicle {
     private String brand;
     private String model;
     private String color;
+    private int fiscal_power;
     private float base_price;
     private float km_price;
     private String matriculation;
 
+
     public Vehicle(){}
 
-    public Vehicle(String brand, String model, String color, float base_price, float km_price, String matriculation) {
+    public Vehicle(String brand, String model, String color, int fiscal_power, float base_price, float km_price, String matriculation) {
         this.brand = brand;
         this.model = model;
         this.color = color;
+        this.fiscal_power = fiscal_power;
         this.base_price = base_price;
         this.km_price = km_price;
         this.matriculation = matriculation;
