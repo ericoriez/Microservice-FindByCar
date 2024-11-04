@@ -1,5 +1,8 @@
 package com.ebm.findmycar.controller;
 
+import com.ebm.findmycar.model.Car;
+import com.ebm.findmycar.model.Motorcycle;
+import com.ebm.findmycar.model.UtilityVehicle;
 import com.ebm.findmycar.model.Vehicle;
 import com.ebm.findmycar.service.VehicleService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,5 +45,20 @@ public class VehicleController {
     @DeleteMapping("/{id}")
     public void deleteVehicle(@PathVariable int id) {
         vehicleService.deleteVehicle(id);
+    }
+
+    @GetMapping("/cars")
+    public List<Car> getAllCars() {
+        return vehicleService.getAllCars();
+    }
+
+    @GetMapping("/motorcycles")
+    public List<Motorcycle> getAllMotorcycles() {
+        return vehicleService.getAllMotorcycles();
+    }
+
+    @GetMapping("/utility-vehicles")
+    public List<UtilityVehicle> getAllUtilityVehicles() {
+        return vehicleService.getAllUtilityVehicles();
     }
 }

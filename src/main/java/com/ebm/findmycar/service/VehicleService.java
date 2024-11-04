@@ -1,5 +1,8 @@
 package com.ebm.findmycar.service;
 
+import com.ebm.findmycar.model.Car;
+import com.ebm.findmycar.model.Motorcycle;
+import com.ebm.findmycar.model.UtilityVehicle;
 import com.ebm.findmycar.model.Vehicle;
 import com.ebm.findmycar.repository.VehicleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -52,4 +55,17 @@ public class VehicleService {
     public void deleteVehicle(int id) {
         vehicleRepository.deleteById(id);
     }
+
+    public List<Car> getAllCars() {
+        return vehicleRepository.findAllCars();
+    }
+
+    public List<Motorcycle> getAllMotorcycles() {
+        return vehicleRepository.findAllMotorcycles();
+    }
+
+    public List<UtilityVehicle> getAllUtilityVehicles() {
+        return vehicleRepository.findAllUtilityVehicles();
+    }
+
 }
