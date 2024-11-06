@@ -38,17 +38,41 @@ public class VehicleService {
 
     // Mettre à jour un véhicule
     public Vehicle updateVehicle(int id, Vehicle vehicleDetails) {
-        return vehicleRepository.findById(id).map(vehicle -> {
-            vehicle.setId(id);
-            vehicle.setBrand(vehicleDetails.getBrand());
-            vehicle.setModel(vehicleDetails.getModel());
-            vehicle.setColor(vehicleDetails.getColor());
-            vehicle.setFiscal_power(vehicleDetails.getFiscal_power());
-            vehicle.setBase_price(vehicleDetails.getBase_price());
-            vehicle.setKm_price(vehicleDetails.getKm_price());
-            vehicle.setMatriculation(vehicleDetails.getMatriculation());
-            return vehicleRepository.save(vehicle);
-        }).orElseThrow(()->new RuntimeException("Vehicle not found"));
+        try {
+            return vehicleRepository.findById(id).map(vehicle -> {
+                // Mise à jour des attributs communs
+                vehicle.setBrand(vehicleDetails.getBrand());
+                vehicle.setModel(vehicleDetails.getModel());
+                vehicle.setColor(vehicleDetails.getColor());
+                vehicle.setFiscalPower(vehicleDetails.getFiscalPower());
+                vehicle.setBasePrice(vehicleDetails.getBasePrice());
+                vehicle.setKmPrice(vehicleDetails.getKmPrice());
+                vehicle.setMatriculation(vehicleDetails.getMatriculation());
+
+                // Vérification et mise à jour des attributs spécifiques
+                if (vehicle instanceof Motorcycle && vehicleDetails instanceof Motorcycle) {
+                    ((Motorcycle) vehicle).setEngineCapacityCm3(((Motorcycle) vehicleDetails).getEngineCapacityCm3());
+                } else if (vehicle instanceof UtilityVehicle && vehicleDetails instanceof UtilityVehicle) {
+                    ((UtilityVehicle) vehicle).setVolumeCapacity(((UtilityVehicle) vehicleDetails).getVolumeCapacity());
+                } else if (vehicle instanceof Car && vehicleDetails instanceof Car) {
+                    // Pas de champ spécifique pour Car, on continue la mise à jour normale
+                } else {
+                    // Si le type ne correspond pas, lancer une exception
+                    throw new IllegalArgumentException("Vehicle type mismatch: Expected "
+                            + vehicle.getClass().getSimpleName()
+                            + " but received "
+                            + vehicleDetails.getClass().getSimpleName());
+                }
+
+                // Sauvegarde du véhicule mis à jour
+                return vehicleRepository.save(vehicle);
+            }).orElseThrow(() -> new RuntimeException("Vehicle not found"));
+        } catch (Exception e) {
+            // Log de l'erreur
+            System.err.println("Error updating vehicle with ID: " + id + ". Details: " + e.getMessage());
+            e.printStackTrace();
+            throw new RuntimeException("Error updating vehicle: " + e.getMessage());
+        }
     }
 
     // Supprimer un véhicule par son ID
