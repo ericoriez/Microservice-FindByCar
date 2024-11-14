@@ -41,6 +41,7 @@
             <version>3.1.0</version>
         </dependency>
 
+
         <!-- MySQL Connector -->
         <dependency>
             <groupId>com.mysql</groupId>
@@ -76,6 +77,13 @@
             <groupId>org.mockito</groupId>
             <artifactId>mockito-junit-jupiter</artifactId>
             <scope>test</scope>
+        </dependency>
+
+        <!-- Swagger Core Dependency -->
+        <dependency>
+            <groupId>org.springdoc</groupId>
+            <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+            <version>2.5.0</version>
         </dependency>
 
 
