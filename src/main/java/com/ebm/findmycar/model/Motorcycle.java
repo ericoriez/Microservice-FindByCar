@@ -16,8 +16,8 @@ public class Motorcycle extends Vehicle {
         super();
     }
 
-    public Motorcycle(String brand, String model, String color,int fiscal_power, float base_price, float km_price, String matriculation, int engineCapacityCm3) {
-        super(brand, model, color,fiscal_power, base_price, km_price, matriculation);
+    public Motorcycle(String brand, String model, String color,int fiscal_power, float base_price, float km_price, String matriculation, int engineCapacityCm3, String image) {
+        super(brand, model, color,fiscal_power, base_price, km_price, matriculation, image);
         this.engineCapacityCm3 = engineCapacityCm3;
     }
 }

@@ -48,6 +48,7 @@ public class VehicleService {
                 vehicle.setBasePrice(vehicleDetails.getBasePrice());
                 vehicle.setKmPrice(vehicleDetails.getKmPrice());
                 vehicle.setMatriculation(vehicleDetails.getMatriculation());
+                vehicle.setImage(vehicleDetails.getImage());
 
                 // Vérification et mise à jour des attributs spécifiques
                 if (vehicle instanceof Motorcycle && vehicleDetails instanceof Motorcycle) {
@@ -79,15 +80,15 @@ public class VehicleService {
     public void deleteVehicle(int id) {
         vehicleRepository.deleteById(id);
     }
-
+    // Récupère toute les voitures
     public List<Car> getAllCars() {
         return vehicleRepository.findAllCars();
     }
-
+    // Récupère toute les motos
     public List<Motorcycle> getAllMotorcycles() {
         return vehicleRepository.findAllMotorcycles();
     }
-
+    // Récupère tout les utilitaires
     public List<UtilityVehicle> getAllUtilityVehicles() {
         return vehicleRepository.findAllUtilityVehicles();
     }

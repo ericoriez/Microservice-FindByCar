@@ -14,7 +14,7 @@ public class Car extends Vehicle {
     public Car() {
         super();
     }
-    public Car(String brand, String model, String color,int fiscal_power, float base_price, float km_price, String matriculation) {
-        super(brand, model, color,fiscal_power, base_price, km_price, matriculation);
+    public Car(String brand, String model, String color,int fiscal_power, float base_price, float km_price, String matriculation, String image) {
+        super(brand, model, color,fiscal_power, base_price, km_price, matriculation, image);
     }
 }

@@ -38,7 +38,7 @@ public class VehicleControllerTest {
     @Test
     public void addVehicleTest() throws Exception {
         // Création d'un objet Vehicle de type Car avec des données d'exemple
-        Vehicle vehicle = new Car("Toyota", "Corolla", "Red", 75, 100, 2, "abcdef");
+        Vehicle vehicle = new Car("Toyota", "Corolla", "Red", 75, 100, 2, "abcdef","./images/car.png");
 
         // Mock du service pour qu'il renvoie le véhicule créé quand la méthode save est appelée
         when(vehicleService.save(any(Vehicle.class))).thenReturn(vehicle);
@@ -59,9 +59,9 @@ public class VehicleControllerTest {
     public void getAllVehiclesTest() throws Exception {
 
         // Création d'une liste de véhicules pour simuler une réponse
-        Vehicle vehicle1 = new Car("Toyota", "Corolla", "Red", 75, 100, 2, "abcdef");
-        Vehicle vehicle2 = new Car("Renault", "Clio", "Pink", 75, 100, 2, "abcdef");
-        Vehicle vehicle3 = new Motorcycle("Yamaha", "R1", "Pink", 75, 100, 2, "abcdef",998);
+        Vehicle vehicle1 = new Car("Toyota", "Corolla", "Red", 75, 100, 2, "abcdef","./images/vehicle1.png");
+        Vehicle vehicle2 = new Car("Renault", "Clio", "Pink", 75, 100, 2, "abcdef","./images/vehicle2.png");
+        Vehicle vehicle3 = new Motorcycle("Yamaha", "R1", "Pink", 75, 100, 2, "abcdef",998,"./images/vehicle3.png");
         List<Vehicle> vehicles = Arrays.asList(vehicle1, vehicle2, vehicle3);
 
         // Mock du service pour qu'il renvoie la liste des véhicules
@@ -82,7 +82,7 @@ public class VehicleControllerTest {
     public void getVehicleByIdTest() throws Exception {
 
         // Création d'un véhicule pour simuler le retour d'un véhicule par ID
-        Vehicle vehicle = new Car("Toyota", "Corolla", "Red", 75, 100, 2, "abcdef");
+        Vehicle vehicle = new Car("Toyota", "Corolla", "Red", 75, 100, 2, "abcdef","./images/car.png");
 
         // Simulation du retour d'un véhicule spécifique par le service
         when(vehicleService.getVehicleById(1)).thenReturn(Optional.of(vehicle));
@@ -115,8 +115,8 @@ public class VehicleControllerTest {
     public void getAllCarsTest() throws Exception {
 
         // Création de deux objets Car avec des attributs différents
-        Vehicle car1 = new Car("Toyota", "Corolla", "Red", 75, 100, 2, "abcdef");
-        Vehicle car2 = new Car("Renault", "Clio", "Pink", 75, 100, 2, "abcdef");
+        Vehicle car1 = new Car("Toyota", "Corolla", "Red", 75, 100, 2, "abcdef", "./images/car.png");
+        Vehicle car2 = new Car("Renault", "Clio", "Pink", 75, 100, 2, "abcdef", "./images/car.png");
 
         // Création d'une liste contenant ces deux voitures
         List<Car> cars = Arrays.asList((Car) car1, (Car) car2);
@@ -137,10 +137,10 @@ public class VehicleControllerTest {
     public void updateVehicleTest() throws Exception {
 
         // Création d'un objet Car initial avant modification
-        Vehicle originalVehicle = new Car("Toyota", "Corolla", "Red", 75, 100, 2, "ABC123");
+        Vehicle originalVehicle = new Car("Toyota", "Corolla", "Red", 75, 100, 2, "ABC123","./images/car.png");
 
         // Création d'un objet Car modifié (ici, seule la couleur change)
-        Vehicle updatedVehicle = new Car("Toyota", "Corolla", "Blue", 75, 100, 2, "ABC123");
+        Vehicle updatedVehicle = new Car("Toyota", "Corolla", "Blue", 75, 100, 2, "ABC123","./images/car.png");
 
         // Simulation de la méthode getVehicleById() pour retourner l'objet original en fonction de l'ID
         when(vehicleService.getVehicleById(1)).thenReturn(Optional.of(originalVehicle));

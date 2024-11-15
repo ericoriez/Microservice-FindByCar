@@ -45,11 +45,12 @@ public abstract class Vehicle {
     private float basePrice;
     private float kmPrice;
     private String matriculation;
+    private String image;
 
 
     public Vehicle(){}
 
-    public Vehicle(String brand, String model, String color, int fiscalPower, float basePrice, float kmPrice, String matriculation) {
+    public Vehicle(String brand, String model, String color, int fiscalPower, float basePrice, float kmPrice, String matriculation, String image) {
         this.brand = brand;
         this.model = model;
         this.color = color;
@@ -57,6 +58,7 @@ public abstract class Vehicle {
         this.basePrice = basePrice;
         this.kmPrice = kmPrice;
         this.matriculation = matriculation;
+        this.image = image;
     }
 
 }
